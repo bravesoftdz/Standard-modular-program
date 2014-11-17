@@ -68,7 +68,7 @@ Program 2 -> "GOOD" -> Program 1
 * Program 1 Program file name passed 2, program 2 Download the file to your smartphone, send the program status 1 successful download, the program 1 delete the downloaded file.
 
 
-<h2>Implementation in Delphi 7 with processing WM_COPYDATA </ h2>
+<h2>Implementation in Delphi 7 with processing WM_COPYDATA</h2>
 
 Receiving
 <blockquote>...<br>
