@@ -50,13 +50,13 @@ end;</blockquote>
 
 Standard modular programs (eng. Standard modular program) - a standard messaging between programs. Messages are exchanged using messages Windows - WM_COPYDATA, on Linux - D-Bus?
 
-<h2> Messaging </ h2>
+<h2>Messaging</h2>
 If you want to know the status of the program, we will send a message to her "WORK" (to find the handle to send, can be used, for example, search for the application title), and then get the answer from her as a "YES & ID_HANDLE".
 Before sending the message "YES & ID_HANDLE" program should ask the user about whether to allow her access to this application. If the user allows it access, the program adds it to the list of allowed. whereupon
 there is some action depending on the application commands. After successful completion of the application sends a command "GOOD", and in case no successful implementation of "BAD".
 
 
-<h2> Example of </ h2>
+<h2>Example of</h2>
 Program 1 (Podcast Manager) download podcasts. <br>
 Program 2 (Program smartphone sync). <br>
 
@@ -70,7 +70,7 @@ Program 2 -> "GOOD" -> Program 1
 
 <h2>Implementation in Delphi 7 with processing WM_COPYDATA </ h2>
 
-receiving
+Receiving
 <blockquote>...<br>
 type<br>
   TForm1 = class(TForm)<br>
@@ -84,7 +84,7 @@ if copy(PChar(TWMCopyData(Msg).CopyDataStruct.lpData),1,4)='YES&' then ShowMessa
 Msg.Result:=Integer(True);<br>
 end;</blockquote>
 
-shipping
+Shipping
 <blockquote>var<br>
 CDS: TCopyDataStruct;<br>
 begin<br>
