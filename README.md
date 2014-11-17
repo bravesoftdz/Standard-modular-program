@@ -45,7 +45,7 @@ CDS.cbData:=(length('Команда')+ 1)*sizeof(char);<br>
 CDS.lpData:=PChar('Команда');<br>
 SendMessage(FindWindow(nil, 'Заголовок программы'),WM_COPYDATA, Integer(Handle), Integer(@CDS));<br>
 end;</blockquote>
-
+<br><br>
 <h2>Standard modular programs</h2>
 
 Standard modular programs (eng. Standard modular program) - a standard messaging between programs. Messages are exchanged using messages Windows - WM_COPYDATA, on Linux - D-Bus?
