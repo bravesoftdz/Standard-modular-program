@@ -21,7 +21,7 @@
 *Программа 1 передала название файлов программе 2, программа 2 загрузила файлы на смартфон, отправила программе 1 статус успешной загрузки, программа 1 удалила загруженные файлы.
 
 
-<b>Реализация на Delphi 7 с обработкой WM_COPYDATA</b>
+<b>Пример на Delphi 7 с обработкой WM_COPYDATA</b>
 
 Получение
 <blockquote>...<br>
@@ -69,7 +69,7 @@ Program 2 -> "GOOD" -> Program 1
 * Program 1 Program file name passed 2, program 2 Download the file to your smartphone, send the program status 1 successful download, the program 1 delete the downloaded file.
 
 
-<b>Implementation in Delphi 7 with processing WM_COPYDATA</b>
+<b>Example in Delphi 7 with processing WM_COPYDATA</b>
 
 Receiving
 <blockquote>...<br>
