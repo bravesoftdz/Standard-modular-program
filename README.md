@@ -1,14 +1,13 @@
-Стандарт модульных программ
-========================
-Стандарт модульных программ - это стандарт обмена сообщениями между программами. Обмен сообщениями происходит при помощи сообщения Windows - WM_COPYDATA, на Linux - D-Bus?
+<h2>RU:</h2>
+Стандарт модульных программ - это концепция <del>стандарт</del> обмена сообщениями между программами. Обмен сообщениями происходит при помощи сообщения Windows - WM_COPYDATA, на Linux - D-Bus?
 
-<h2>Обмен сообщениями</h2>
-Если нужно узнать статус программы, то мы отправляем ей сообщение "WORK" (чтобы найти handle для отправки, можно использовать, например, поиск по заголовку приложения ), после чего получаем ответ от нее в виде "YES&ID_HANDLE".
+<b>Обмен сообщениями</b>
+Для того, чтобы узнать статус программы, мы отправляем ей сообщение "WORK" (чтобы найти handle для отправки, можно использовать поиск по заголовку приложения ), после чего получаем ответ в виде "YES&ID_HANDLE".
 Перед отправкой сообщения "YES&ID_HANDLE" программа должна спросить пользователя о том, разрешать ли ей доступ в это приложение. Если пользователь разрешает ей доступ, то программа добавляет ее в список разрешенных. После чего 
 происходит некоторое действие, в зависимости от команд приложения. После успешно выполненной команды приложения отправляет "GOOD", а в случае не успешного выполнения "BAD".
 
 
-<h2>Пример работы</h2>
+<b>Пример работы</b>
 Программа 1 (Подкаст-менеджер) загружает подкасты.<br>
 Программа 2 (Программа синхронизации смартфона).<br>
 
@@ -20,8 +19,7 @@
 *Программа 1 передала название файлов программе 2, программа 2 загрузила файлы на смартфон, отправила программе 1 статус успешной загрузки, программа 1 удалила загруженные файлы.
 
 
-<h2>Реализация на Delphi 7 с обработкой WM_COPYDATA</h2>
-
+<b>Реализация на Delphi 7 с обработкой WM_COPYDATA</b>
 Получение
 <blockquote>...<br>
 type<br>
@@ -46,17 +44,15 @@ CDS.lpData:=PChar('Команда');<br>
 SendMessage(FindWindow(nil, 'Заголовок программы'),WM_COPYDATA, Integer(Handle), Integer(@CDS));<br>
 end;</blockquote>
 <br>
-<h2>Standard modular programs</h2>
+<h2>EN:</h2>
+Standard modular programs (eng. Standard modular program) - a concept <del>standard</del> messaging between programs. Messages are exchanged using messages Windows - WM_COPYDATA, on Linux - D-Bus?
 
-Standard modular programs (eng. Standard modular program) - a standard messaging between programs. Messages are exchanged using messages Windows - WM_COPYDATA, on Linux - D-Bus?
+<b>Messaging</b>
+To find out the status of the program, we send her a message "WORK" (to find the handle to send, you can search for the title of the application), and then get an answer in the form of "YES & ID_HANDLE".
+Before sending the message "YES & ID_HANDLE" program should ask the user about whether to allow it access to this application. If the user allows access to it, the program adds it to the list of allowed. whereupon
+takes some action depending on the application commands. After successful completion of the application sends a command "GOOD", and in case of successful implementation of "BAD".
 
-<h2>Messaging</h2>
-If you want to know the status of the program, we will send a message to her "WORK" (to find the handle to send, can be used, for example, search for the application title), and then get the answer from her as a "YES & ID_HANDLE".
-Before sending the message "YES & ID_HANDLE" program should ask the user about whether to allow her access to this application. If the user allows it access, the program adds it to the list of allowed. whereupon
-there is some action depending on the application commands. After successful completion of the application sends a command "GOOD", and in case no successful implementation of "BAD".
-
-
-<h2>Example of</h2>
+<b>Example</b>
 Program 1 (Podcast Manager) download podcasts. <br>
 Program 2 (Program smartphone sync). <br>
 
@@ -68,8 +64,7 @@ Program 2 -> "GOOD" -> Program 1
 * Program 1 Program file name passed 2, program 2 Download the file to your smartphone, send the program status 1 successful download, the program 1 delete the downloaded file.
 
 
-<h2>Implementation in Delphi 7 with processing WM_COPYDATA</h2>
-
+<b>Implementation in Delphi 7 with processing WM_COPYDATA</b>
 Receiving
 <blockquote>...<br>
 type<br>
