@@ -85,7 +85,7 @@ if copy(PChar(TWMCopyData(Msg).CopyDataStruct.lpData),1,4)='YES&' then ShowMessa
 Msg.Result:=Integer(True);<br>
 end;</blockquote>
 
-Shipping
+Sending
 <blockquote>var<br>
 CDS: TCopyDataStruct;<br>
 begin<br>
