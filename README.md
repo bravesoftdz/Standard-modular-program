@@ -2,14 +2,11 @@
 Стандарт модульных программ - это концепция <del>стандарт</del> обмена сообщениями между программами. Обмен сообщениями происходит при помощи сообщения Windows - WM_COPYDATA, на Linux - D-Bus?
 
 <b>Обмен сообщениями</b>
-
 Для того, чтобы узнать статус программы, мы отправляем ей сообщение "WORK" (чтобы найти handle для отправки, можно использовать поиск по заголовку приложения ), после чего получаем ответ в виде "YES&ID_HANDLE".
 Перед отправкой сообщения "YES&ID_HANDLE" программа должна спросить пользователя о том, разрешать ли ей доступ в это приложение. Если пользователь разрешает ей доступ, то программа добавляет ее в список разрешенных. После чего 
 происходит некоторое действие, в зависимости от команд приложения. После успешно выполненной команды приложения отправляет "GOOD", а в случае не успешного выполнения "BAD".
 
-
 <b>Пример работы</b>
-
 Программа 1 (Подкаст-менеджер) загружает подкасты.<br>
 Программа 2 (Программа синхронизации смартфона).<br>
 
@@ -22,7 +19,6 @@
 
 
 <b>Пример на Delphi 7 с обработкой WM_COPYDATA</b>
-
 Получение
 <blockquote>...<br>
 type<br>
@@ -51,13 +47,11 @@ end;</blockquote>
 Standard modular programs (eng. Standard modular program) - a concept <del>standard</del> messaging between programs. Messages are exchanged using messages Windows - WM_COPYDATA, on Linux - D-Bus?
 
 <b>Messaging</b>
-
 To find out the status of the program, we send her a message "WORK" (to find the handle to send, you can search for the title of the application), and then get an answer in the form of "YES & ID_HANDLE".
 Before sending the message "YES & ID_HANDLE" program should ask the user about whether to allow it access to this application. If the user allows access to it, the program adds it to the list of allowed. whereupon
 takes some action depending on the application commands. After successful completion of the application sends a command "GOOD", and in case of successful implementation of "BAD".
 
 <b>Example</b>
-
 Program 1 (Podcast Manager) download podcasts. <br>
 Program 2 (Program smartphone sync). <br>
 
@@ -70,7 +64,6 @@ Program 2 -> "GOOD" -> Program 1
 
 
 <b>Example in Delphi 7 with processing WM_COPYDATA</b>
-
 Receiving
 <blockquote>...<br>
 type<br>
