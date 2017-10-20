@@ -1,5 +1,5 @@
 <h2>RU:</h2>
-Стандарт модульных программ - это концепция <del>стандарт</del> обмена сообщениями между программами. Обмен сообщениями происходит при помощи сообщения Windows - WM_COPYDATA, на Linux - D-Bus?
+Стандарт модульных программ - это концепция <del>стандарт</del> обмена сообщениями между программами. Обмен сообщениями происходит при помощи сообщения Windows - WM_COPYDATA.
 
 <b>Обмен сообщениями</b><br>
 Для того, чтобы узнать статус программы, мы отправляем ей сообщение "WORK" (чтобы найти handle для отправки, можно использовать поиск по заголовку приложения ), после чего получаем ответ в виде "YES&ID_HANDLE".
@@ -44,7 +44,7 @@ SendMessage(FindWindow(nil, 'Заголовок программы'),WM_COPYDATA
 end;</blockquote>
 <br>
 <h2>EN:</h2>
-Standard modular programs (eng. Standard modular program) - a concept <del>standard</del> messaging between programs. Messages are exchanged using messages Windows - WM_COPYDATA, on Linux - D-Bus?
+Standard modular programs (eng. Standard modular program) - a concept <del>standard</del> messaging between programs. Messages are exchanged using messages Windows - WM_COPYDATA.
 
 <b>Messaging</b>
 To find out the status of the program, we send her a message "WORK" (to find the handle to send, you can search for the title of the application), and then get an answer in the form of "YES & ID_HANDLE".
