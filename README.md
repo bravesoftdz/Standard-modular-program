@@ -22,8 +22,7 @@
 Получение
 <blockquote>...<br>
 type<br>
-  TForm1 = class(TForm)<br>
-    Label1: TLabel;<br>
+  TForm = class(TForm)<br>
   private<br>
    procedure WMCopyData(var Msg: TWMCopyData); message WM_COPYDATA; //Наша функция<br>
 ...<br>
@@ -67,8 +66,7 @@ Program 2 -> "GOOD" -> Program 1
 Receiving
 <blockquote>...<br>
 type<br>
-  TForm1 = class(TForm)<br>
-    Label1: TLabel;<br>
+  TForm = class(TForm)<br>
   private<br>
    procedure WMCopyData(var Msg: TWMCopyData); message WM_COPYDATA; //Our function<br>
 ...<br>
