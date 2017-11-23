@@ -12,7 +12,6 @@
 ### Пример работы
 
 Программа 1 (Подкаст-менеджер) загружает подкасты.
-
 Программа 2 (Программа синхронизации смартфона).
 
 
@@ -21,7 +20,7 @@
 Программа 1 -> "FILES TO SYNC\n...\n..." -> Программа 2<br>
 Программа 2 -> "GOOD" -> Программа 1
 
-*Подкаст-менеджер передал названия загруженных файлов программе синхронизации смартфона, программа синхронизации смартфона загрузила файлы на смартфон и отправила статус успешной загрузки, подкаст-менеджер удалил загруженные файлы.
+*Подкаст-менеджер передал названия загруженных файлов программе синхронизации смартфона, программа синхронизации смартфона загрузила файлы на смартфон и отправила статус успешной загрузки, подкаст-менеджер удалил загруженные файлы.*
 
 
 #### Пример на Delphi 7 с обработкой WM_COPYDATA
@@ -64,7 +63,7 @@ Program 2 -> "YES" -> Program 1 <br>
 Program 1 -> "FILES TO SYNC \ n ... \ n ..." -> Program 2 <br>
 Program 2 -> "GOOD" -> Program 1
 
-* The podcast manager sended file names of the downloaded files to the smartphone synchronization program, the smartphone synchronization program downloaded the files to the smartphone and sent the status of a successful download, the podcast manager deleted the downloaded files.
+*The podcast manager sended file names of the downloaded files to the smartphone synchronization program, the smartphone synchronization program downloaded the files to the smartphone and sent the status of a successful download, the podcast manager deleted the downloaded files.*
 
 
 #### Example in Delphi 7 with processing WM_COPYDATA
