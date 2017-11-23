@@ -1,28 +1,31 @@
-<h2>RU:</h2>
+#RU:
 Стандарт модульных программ - это концепция <del>стандарт</del> обмена сообщениями между программами. Обмен сообщениями происходит при помощи сообщения Windows - WM_COPYDATA.
 
-<b>Обмен сообщениями</b><br>
-Для того, чтобы узнать статус программы, мы отправляем ей сообщение "WORK" (чтобы найти handle для отправки, можно использовать поиск по заголовку приложения ), после чего получаем ответ в виде "YES&ID_HANDLE".
-Перед отправкой сообщения "YES&ID_HANDLE" программа должна спросить пользователя о том, разрешать ли ей доступ в это приложение. Если пользователь разрешает ей доступ, то программа добавляет ее в список разрешенных. После чего 
-происходит некоторое действие, в зависимости от команд приложения. После успешно выполненной команды приложения отправляет "GOOD", а в случае не успешного выполнения "BAD".
 
-<b>Пример работы</b><br>
-Программа 1 (Подкаст-менеджер) загружает подкасты.<br>
-Программа 2 (Программа синхронизации смартфона).<br>
+###Обмен сообщениями
+1. Ищем handle приложений по заголовку или иным способом.
+2. Отправляем приложению сообщение "WORK" для получения статуса работы стандарта. Приложение спрашивает пользователя о добавлении программы отправителя в список разрешенных. В случае положительного ответа отправляем "YES", в ином случае "NO".
+3. Если получен ответ "Yes", то происходит некоторое действие, в зависимости от команд приложения. После успешно выполненной команды приложения отправляет "GOOD", а в случае не успешного выполнения "BAD".
+
+
+###Пример работы
+
+Программа 1 (Подкаст-менеджер) загружает подкасты.
+
+Программа 2 (Программа синхронизации смартфона).
+
 
 Программа 1 -> "WORK" -> Программа 2<br>
 Программа 2 -> "YES" -> Программа 1<br>
 Программа 1 -> "FILES TO SYNC\n...\n..." -> Программа 2<br>
 Программа 2 -> "GOOD" -> Программа 1
 
-*Программа 1 передала название файлов программе 2, программа 2 загрузила файлы на смартфон, отправила программе 1 статус успешной загрузки, программа 1 удалила загруженные файлы.
+*Подкаст-менеджер передал названия загруженных файлов программе синхронизации смартфона, программа синхронизации смартфона загрузила файлы на смартфон и отправила статус успешной загрузки, подкаст-менеджер удалил загруженные файлы.
 
 
-<b>Пример на Delphi 7 с обработкой WM_COPYDATA</b><br>
-Получение
+####Пример на Delphi 7 с обработкой WM_COPYDATA
+#####Получение
 <blockquote>...<br>
-type<br>
-  TForm = class(TForm)<br>
   private<br>
    procedure WMCopyData(var Msg: TWMCopyData); message WM_COPYDATA; //Наша функция<br>
 ...<br>
@@ -32,7 +35,7 @@ if copy(PChar(TWMCopyData(Msg).CopyDataStruct.lpData),1,4)='YES&' then ShowMessa
 Msg.Result:=Integer(True);<br>
 end;</blockquote>
 
-Отправка<br>
+#####Отправка
 <blockquote>var<br>
 CDS: TCopyDataStruct;<br>
 begin<br>
@@ -41,16 +44,17 @@ CDS.cbData:=(length('Команда')+ 1)*sizeof(char);<br>
 CDS.lpData:=PChar('Команда');<br>
 SendMessage(FindWindow(nil, 'Заголовок программы'),WM_COPYDATA, Integer(Handle), Integer(@CDS));<br>
 end;</blockquote>
-<br>
-<h2>EN:</h2>
+
+
+#EN:
 Standard modular programs (eng. Standard modular program) - a concept <del>standard</del> messaging between programs. Messages are exchanged using messages Windows - WM_COPYDATA.
 
-<b>Messaging</b>
-To find out the status of the program, we send her a message "WORK" (to find the handle to send, you can search for the title of the application), and then get an answer in the form of "YES & ID_HANDLE".
-Before sending the message "YES & ID_HANDLE" program should ask the user about whether to allow it access to this application. If the user allows access to it, the program adds it to the list of allowed. whereupon
-takes some action depending on the application commands. After successful completion of the application sends a command "GOOD", and in case of successful implementation of "BAD".
+###Message exchange
+1. Looking for handle applications by title or otherwise.
+2. We send the message "WORK" to the application to get the status of the standard. The application asks the user if the sender program is added to the list of allowed programs. If yes, send "YES", otherwise "NO".
+3. If the answer is "Yes", then some action takes place, depending on the application commands. After successfully executing the command, the application sends "GOOD", and in case of unsuccessful execution of "BAD".
 
-<b>Example</b><br>
+###Example</b><br>
 Program 1 (Podcast Manager) download podcasts. <br>
 Program 2 (Program smartphone sync). <br>
 
@@ -59,14 +63,12 @@ Program 2 -> "YES" -> Program 1 <br>
 Program 1 -> "FILES TO SYNC \ n ... \ n ..." -> Program 2 <br>
 Program 2 -> "GOOD" -> Program 1
 
-* Program 1 Program file name passed 2, program 2 Download the file to your smartphone, send the program status 1 successful download, the program 1 delete the downloaded file.
+* The podcast manager sended file names of the downloaded files to the smartphone synchronization program, the smartphone synchronization program downloaded the files to the smartphone and sent the status of a successful download, the podcast manager deleted the downloaded files.
 
 
-<b>Example in Delphi 7 with processing WM_COPYDATA</b><br>
-Receiving
+####Example in Delphi 7 with processing WM_COPYDATA
+#####Receiving
 <blockquote>...<br>
-type<br>
-  TForm = class(TForm)<br>
   private<br>
    procedure WMCopyData(var Msg: TWMCopyData); message WM_COPYDATA; //Our function<br>
 ...<br>
@@ -76,7 +78,7 @@ if copy(PChar(TWMCopyData(Msg).CopyDataStruct.lpData),1,4)='YES&' then ShowMessa
 Msg.Result:=Integer(True);<br>
 end;</blockquote>
 
-Sending
+#####Sending
 <blockquote>var<br>
 CDS: TCopyDataStruct;<br>
 begin<br>
